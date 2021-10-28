@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-9t#&g66@6=st58(lqfr)*u$^_hr2c*u+u$7jntejna_3*z$xuh
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -41,7 +39,6 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
 ]
 INSTALLED_APPS += ('django_summernote', 'crispy_forms')
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,7 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'maroonedBlog.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -84,7 +80,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -104,7 +99,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -118,7 +112,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -131,14 +124,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SUMMERNOTE_THEME = 'bs4'  # Show summernote with Bootstrap4
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
 
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'signin'
@@ -151,3 +142,7 @@ EMAIL_HOST_USER = 'ashiqrahman013@gmail.com'
 EMAIL_HOST_PASSWORD = 'epyxiauwdauqoryt'
 DEFAULT_FROM_EMAIL = 'Marooned.herokuapp.com <noreply@marooned.com>'
 
+# for Heroku server
+import django_heroku
+
+django_heroku.settings(locals())
