@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ tag.tag_name }} {{ block.super }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-md-8 mt-4 left">
+                <h1 class="mb-4 text-center">post with <span
+                        class="badge badge-info rounded"> {{ tag.tag_name }} </span> tag</h1>
+                {% for post in tag.post_tag.all %}
+                    {% include 'blog/baby_template/news_card.html' %}
+                {% endfor %}
+            </div>
+            {% block sidebar %} {% include 'blog/baby_template/sidebar.html' %} {% endblock sidebar %}
+        </div>
+    </div>
+{% endblock %}
