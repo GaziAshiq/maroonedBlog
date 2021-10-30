@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
 ]
-INSTALLED_APPS += ('django_summernote', 'crispy_forms')
+INSTALLED_APPS += ('django_summernote', 'crispy_forms', 'whitenoise.middleware.WhiteNoiseMiddleware',)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -123,6 +123,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+# for heroku
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
